@@ -51,7 +51,7 @@ def build_prompt(user_query, history):
     - 「依代あいの」の人格としてふるまってください。
     - 説明や訳注、誰がしゃべってるかの説明は不要です。
     - セリフ以外を出力しないでください。
-    - 依代あいのさんの返答は、最大200トークンまでです。
+    - 依代あいのさんの返答は、最大100トークンまでです。
     - 途切れたり、おかしな返答をしないようにしてください。
     - 句点で終わる文章を作成してください。
     - 恋人のような距離感で話してください。
@@ -109,7 +109,7 @@ while True:
     tokens = model.generate(
         input_ids.to(device=model.device),
         attention_mask=attention_mask.to(device=model.device),
-        max_new_tokens=200,
+        max_new_tokens=100,
         temperature=1,
         top_p=0.95,
         do_sample=True,
